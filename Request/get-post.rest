@@ -1,0 +1,33 @@
+GET http://localhost:8000/libro
+
+###
+DELETE http://localhost:8000/libro/2
+
+###
+GET http://localhost:8000/libro/2
+
+###
+GET http://localhost:8000/libro/az
+
+###
+GET http://localhost:8000/libro/za
+
+###
+
+GET http://localhost:8000/libro/destacados
+
+###
+
+GET http://localhost:8000/libro?genres=Drama
+
+###
+
+GET http://localhost:8000/comentario?idLibro=10
+
+###
+
+GET http://localhost:8000/comentario?calificacion=8
+
+###
+
+GET http://localhost:8000/usuario

@@ -1,0 +1,174 @@
+# @name login
+POST http://localhost:8000/login
+Content-Type: application/json
+
+{
+  "username":"admin",
+  "password":"123456"
+}
+
+###
+POST http://127.0.0.1:8000/comentario/
+Content-Type: application/json
+Authorization: Bearer {{ login.response.body.token }}
+
+{
+  "comentarios":"disfrutable",
+  "calificacion": 6,
+  "libro": {
+    "id":1
+  },
+  "usuario":{
+    "id": 1
+  }
+}
+###
+POST http://127.0.0.1:8000/comentario/
+Content-Type: application/json
+Authorization: Bearer {{ login.response.body.token }}
+
+{
+  "comentarios":"muy buen libro",
+  "calificacion": 8,
+  "libro": {
+    "id":1
+  },
+  "usuario":{
+    "id": 2
+  }
+}
+###
+POST http://127.0.0.1:8000/comentario/
+Content-Type: application/json
+Authorization: Bearer {{ login.response.body.token }}
+
+{
+  "comentarios":"esperaba mas de este libro",
+  "calificacion": 4,
+  "libro": {
+    "id":2
+  },
+  "usuario":{
+    "id": 3
+  }
+}
+###
+POST http://127.0.0.1:8000/comentario/
+Content-Type: application/json
+Authorization: Bearer {{ login.response.body.token }}
+
+{
+  "comentarios":"totalmente decepcionado",
+  "calificacion": 1,
+  "libro": {
+    "id":2
+  },
+  "usuario":{
+    "id": 4
+  }
+}
+
+###
+
+POST http://127.0.0.1:8000/comentario/
+Content-Type: application/json
+Authorization: Bearer {{ login.response.body.token }}
+
+{
+  "comentarios":"Es la mejor libro que lei",
+  "calificacion": 10,
+  "libro": {
+    "id": 3
+  },
+  "usuario":{
+    "id": 1
+  }
+}
+###
+POST http://127.0.0.1:8000/comentario/
+Content-Type: application/json
+Authorization: Bearer {{ login.response.body.token }}
+
+{
+  "comentarios":"es buena pero no me volo la cabeza",
+  "calificacion": 7,
+  "libro": {
+    "id": 3
+  },
+  "usuario":{
+    "id": 2
+  }
+}
+###
+POST http://127.0.0.1:8000/comentario/
+Content-Type: application/json
+Authorization: Bearer {{ login.response.body.token }}
+
+{
+  "comentarios":"excelente el mensaje que transmite",
+  "calificacion": 8,
+  "libro": {
+    "id": 4
+  },
+  "usuario":{
+    "id": 3
+  }
+}
+###
+POST http://127.0.0.1:8000/comentario/
+Content-Type: application/json
+Authorization: Bearer {{ login.response.body.token }}
+
+{
+  "comentarios":"una pieza clasica",
+  "calificacion": 9,
+  "libro": {
+    "id": 4
+  },
+  "usuario":{
+    "id": 4
+  }
+}
+
+###
+
+PUT http://127.0.0.1:8000/comentario/2
+Content-Type: application/json
+Authorization: Bearer {{ login.response.body.token }}
+
+{
+  "comentarios":"muy buen",
+  "calificacion": 8,
+  "libro": {
+    "id":1
+  },
+  "usuario":{
+    "id": 2
+  }
+}
+
+####
+
+GET http://127.0.0.1:8000/comentario/1
+
+####
+
+GET http://127.0.0.1:8000/comentario
+
+####
+
+DELETE http://127.0.0.1:8000/comentario/1
+Content-Type: application/json 
+Authorization: Bearer {{ login.response.body.token }}
+
+####
+
+GET http://127.0.0.1:8000/comentario?libro_id=1
+
+####
+
+GET http://127.0.0.1:8000/comentario?&usario_id=1
+
+####
+
+GET http://127.0.0.1:8000/comentario?libro_id=2&usario_id=1

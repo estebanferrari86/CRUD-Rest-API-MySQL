@@ -1,0 +1,92 @@
+# @name login
+POST http://localhost:8000/login
+Content-Type: application/json
+
+{
+  "username":"admin",
+  "password":"123456"
+}
+
+###
+POST http://127.0.0.1:8000/usuario/
+Content-Type: application/json
+Authorization: Bearer {{ login.response.body.token }}
+
+{
+  "nombre":"Esteban",
+  "apellido":"Ferrari",
+  "usuario": "Formula1",
+  "email":"Ferrari@gmail.com",
+  "contrasenia": "sdaa"
+}
+###
+POST http://127.0.0.1:8000/usuario/
+Content-Type: application/json
+Authorization: Bearer {{ login.response.body.token }}
+
+{
+  "nombre":"Jesus",
+  "apellido":"Arias",
+  "usuario": "Jebus",
+  "email":"ariasgmail.com",
+  "contrasenia": "sdaa"
+}
+
+###
+POST http://127.0.0.1:8000/usuario/
+Content-Type: application/json
+Authorization: Bearer {{ login.response.body.token }}
+
+{
+  "nombre":"Cristian",
+  "apellido":"Jelovcic",
+  "usuario": "cris12",
+  "email":"cris@gmail.com",
+  "contrasenia": "sdaa"
+}
+
+###
+
+POST http://127.0.0.1:8000/usuario/
+Content-Type: application/json
+Authorization: Bearer {{ login.response.body.token }}
+
+{
+  "nombre":"cin",
+  "apellido":"sab",
+  "usuario": "cinsan",
+  "email":"cinsan@gmail.com",
+  "contrasenia": "sdaa"
+}
+
+###
+
+PUT http://127.0.0.1:8000/usuario/2
+Content-Type: application/json
+Authorization: Bearer {{ login.response.body.token }}
+
+{
+  "id":"2",
+  "nombre":"cincin",
+  "apelido":"sab",
+  "usuario": "cinsan",
+  "email":"cinsan@gmail.com"
+}
+
+####
+
+GET http://127.0.0.1:8000/usuario/2
+
+####
+
+DELETE http://127.0.0.1:8000/usuario/2
+Content-Type: application/json 
+Authorization: Bearer {{ login.response.body.token }}
+
+####
+
+GET http://127.0.0.1:8000/usuario?apellido=sab
+
+####
+
+GET http://127.0.0.1:8000/usuario?nombre=Jesus

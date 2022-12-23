@@ -1,0 +1,102 @@
+# @name login
+POST http://localhost:8000/login
+Content-Type: application/json
+
+{
+  "username":"admin",
+  "password":"123456"
+}
+
+###
+POST http://127.0.0.1:8000/libro/
+Content-Type: application/json
+Authorization: Bearer {{ login.response.body.token }}
+
+{
+  "id":"5",
+  "titulo" : "Interstellar",
+  "escritor": "Christopher Nolan",
+  "anio": 2014,
+  "calificacion": 8.2,
+  "generos": "Ciencia ficción"
+}
+###
+POST http://127.0.0.1:8000/libro/
+Content-Type: application/json
+Authorization: Bearer {{ login.response.body.token }}
+
+{
+  "id":"4",
+  "titulos":"The Dark Knight",
+  "escritor":"Cristopher Nolan",
+  "anio":2008,
+  "calificacion":9,
+  "generos":"Acción"
+}
+###
+POST http://127.0.0.1:8000/libro/
+Content-Type: application/json
+Authorization: Bearer {{ login.response.body.token }}
+
+{
+  "id":"3",
+  "titulos":"Pulp Fiction",
+  "escritor":"Quentin Tarantino",
+  "anio":1994,
+  "calificacion":8.6,
+  "generos":["Crimen", "Drama"]
+}
+###
+POST http://127.0.0.1:8000/libro/
+Content-Type: application/json
+Authorization: Bearer {{ login.response.body.token }}
+
+{
+   "id":"1",
+  "titulo":"Schindler's List",
+  "escritor":"Steven Spielberg",
+  "anio":1993,
+  "calificacion":9.4,
+  "generos":["Belico","Drama"]
+}
+
+###
+
+PUT http://127.0.0.1:8000/libro/2
+Content-Type: application/json
+Authorization: Bearer {{ login.response.body.token }}
+
+{
+  "id":"2",
+  "titulo":"The Dark Knight EDITADO",
+  "escritor":"Cristopher Nolan",
+  "anio":2008,
+  "calificacion":9,
+  "generos":"Acción"
+}
+
+####
+
+GET http://127.0.0.1:8000/libro/2
+
+####
+
+DELETE http://127.0.0.1:8000/libro/2
+Content-Type: application/json 
+Authorization: Bearer {{ login.response.body.token }}
+
+####
+
+GET http://127.0.0.1:8000/libro/
+
+####
+
+GET http://127.0.0.1:8000/libro?generos=Belico
+
+####
+
+GET http://127.0.0.1:8000/libro?title=Interstellar
+
+####
+
+GET http://127.0.0.1:8000/libro?calificacion=6
