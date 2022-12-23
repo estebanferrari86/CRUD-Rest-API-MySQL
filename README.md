@@ -1,4 +1,4 @@
-# Ifts16-bd-api-rest
+# Ifts16-CRUD-Rest-API-MySQL
 Crear una base de datos con el nombre biblioteca
 
 Rest Api NodeJS Sequelize MySQL
